@@ -13,6 +13,7 @@
     <module>exercises</module>
     <module>project</module>
     <module>mock</module>
+    <module>coverage</module>
   </modules>
 
   <properties>
@@ -31,7 +32,6 @@
   </dependencies>
 
   <build>
-    <pluginManagement>
       <plugins>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
@@ -49,8 +49,28 @@
             </dependency>
           </dependencies>
         </plugin>
+        <!-- GENERATE COVERAGE REPORT-->
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>0.8.2</version>
+          <executions>
+            <execution>
+              <id>prepare-agent</id>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>post-unit-test</id>
+              <phase>test</phase>
+              <goals>
+                <goal>report</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
-    </pluginManagement>
   </build>
 
 </project>
