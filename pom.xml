@@ -12,6 +12,7 @@
     <module>examples</module>
     <module>exercises</module>
     <module>project</module>
+    <module>mock</module>
   </modules>
 
   <properties>
